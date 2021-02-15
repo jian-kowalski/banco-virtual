@@ -1,0 +1,60 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{459A37B8-4761-403B-AA77-AF0B42408F64}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="banco-virtual-procedural\bancoVirtualProcedural.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="banco-virtual-eventos\bancoVirtualEventos.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="banco-virtual-POO\bancoVirtualPOO.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="bancoVirtualProcedural">
+        <MSBuild Projects="banco-virtual-procedural\bancoVirtualProcedural.dproj"/>
+    </Target>
+    <Target Name="bancoVirtualProcedural:Clean">
+        <MSBuild Projects="banco-virtual-procedural\bancoVirtualProcedural.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="bancoVirtualProcedural:Make">
+        <MSBuild Projects="banco-virtual-procedural\bancoVirtualProcedural.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="bancoVirtualEventos">
+        <MSBuild Projects="banco-virtual-eventos\bancoVirtualEventos.dproj"/>
+    </Target>
+    <Target Name="bancoVirtualEventos:Clean">
+        <MSBuild Projects="banco-virtual-eventos\bancoVirtualEventos.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="bancoVirtualEventos:Make">
+        <MSBuild Projects="banco-virtual-eventos\bancoVirtualEventos.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="bancoVirtualPOO">
+        <MSBuild Projects="banco-virtual-POO\bancoVirtualPOO.dproj"/>
+    </Target>
+    <Target Name="bancoVirtualPOO:Clean">
+        <MSBuild Projects="banco-virtual-POO\bancoVirtualPOO.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="bancoVirtualPOO:Make">
+        <MSBuild Projects="banco-virtual-POO\bancoVirtualPOO.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="bancoVirtualProcedural;bancoVirtualEventos;bancoVirtualPOO"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="bancoVirtualProcedural:Clean;bancoVirtualEventos:Clean;bancoVirtualPOO:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="bancoVirtualProcedural:Make;bancoVirtualEventos:Make;bancoVirtualPOO:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>
