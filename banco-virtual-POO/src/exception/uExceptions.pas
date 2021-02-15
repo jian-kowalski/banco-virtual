@@ -15,6 +15,9 @@ type
   EDepositoNaoPermitido = class(Exception)
   end;
 
+  ENomeDaPessoaObrigatorio = class(Exception)
+  end;
+
 implementation
 
 end.
